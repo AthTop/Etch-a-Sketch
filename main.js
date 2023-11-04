@@ -22,9 +22,16 @@ function generateGrid(size){
         }
     }
     const cells = document.querySelectorAll('.cell')
+    let counter = 9;
     cells.forEach(cell => {
         cell.addEventListener("mouseenter", (e) => {
-            e.target.style.background = 'red';
+            e.target.style.background = randomColor()
+            e.target.style.filter = 'brightness(' + counter/10 + ')'
+            counter -= 1
+            if (counter < 0) {
+                counter = 9
+            }
+            console.log(counter)
         });
 });
 }
@@ -36,6 +43,7 @@ function resetBoard(){
     const cells = document.querySelectorAll('.cell')
     cells.forEach(cell => {
         cell.style.background = '#eeeeee'
+        cell.style.filter = 'brightness(1)'
     })
 }
 
@@ -46,4 +54,9 @@ newGridButton.addEventListener('click', () => {
     generateGrid(size)
 });
 
-
+function randomColor() {
+    let r = Math.floor(Math.random() * 256)
+    let g = Math.floor(Math.random() * 256)
+    let b = Math.floor(Math.random() * 256)
+    return 'rgb(' + r + ',' + g + ',' + b + ')';
+}
