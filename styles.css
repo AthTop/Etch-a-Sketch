@@ -1,0 +1,19 @@
+.flex-container {
+    width: 600px;
+    height: 600px;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+}
+
+.flex-row {
+    display: flex;
+    justify-content: stretch;
+    flex: 1;
+}
+
+.cell {
+    flex: 1;
+    background-color: #eeeeee;
+    border: 1px solid;
+}
